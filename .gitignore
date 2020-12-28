@@ -130,3 +130,9 @@ dmypy.json
 
 # Pycharm
 .idea
+
+# Logger
+datalake/LOGFILES
+
+# Project files
+datalake/1_LANDING_ZONE
