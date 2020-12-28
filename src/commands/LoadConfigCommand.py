@@ -28,13 +28,12 @@ class LoadConfigFileCommand(BaseCommand):
 
             Config.entities = self.file_content['entities']
             Config.platforms = self.file_content['platforms']
-
-            Config.dir_web_source = self.file_content['dirs']['web_source']
-            Config.dir_landing_zone = self.file_content['dirs']['landing_zone']
-            Config.dir_curated_zone = self.file_content['dirs']['curated_zone']
-            Config.dir_logger_output = self.file_content['dirs']['logger_output']
+            Config.dirs = self.file_content['dirs']
+            Config.regex = self.file_content['regex']
 
             loguru.logger.success("Configuration file loaded")
 
         loguru.logger.success("App platforms to scrap: {platforms}", platforms=Config.platforms)
         loguru.logger.success("App entities to scrap: {entities}", entities=Config.entities)
+        loguru.logger.success("App configuration directories: {dirs}", dirs=Config.dirs)
+        loguru.logger.success("App regular expressions for parsing: {regex}", regex=Config.regex)
