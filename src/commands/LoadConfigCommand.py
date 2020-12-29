@@ -33,7 +33,7 @@ class LoadConfigFileCommand(BaseCommand):
 
             loguru.logger.success("Configuration file loaded")
 
-        loguru.logger.success("App platforms to scrap: {platforms}", platforms=Config.platforms)
-        loguru.logger.success("App entities to scrap: {entities}", entities=Config.entities)
-        loguru.logger.success("App configuration directories: {dirs}", dirs=Config.dirs)
-        loguru.logger.success("App regular expressions for parsing: {regex}", regex=Config.regex)
+        loguru.logger.info("App platforms to scrap: {platforms}", platforms=Config.platforms)
+        loguru.logger.info("App entities to scrap: {entities}", entities=Config.entities)
+        loguru.logger.info("App configuration directories: {dirs}", dirs=Config.dirs)
+        loguru.logger.info("App regular expressions for parsing: {regex}", regex=Config.regex)
