@@ -25,6 +25,11 @@ class BaseParser:
     def parse(self):
         pass
 
+    def extract_id_enterprise(self):
+        regex = re.compile(Config.regex['id_enterprise'])
+        matches = regex.search(self.file)
+        return matches.group('id_enterprise')
+
     def extract_metadata(self):
         """
         Extracts metadata from a file

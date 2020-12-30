@@ -162,6 +162,7 @@ class EnterpriseParser(BaseParser):
             loguru.logger.warning("file {file} has not 'prizes'", file=self.file)
 
         row = {
+            'id_enterprise': self.extract_id_enterprise(),
             'enterprise_name': enterprise_name,
             'number_reviews': number_reviews,
             'number_jobs': number_jobs,

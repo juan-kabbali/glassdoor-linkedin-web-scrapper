@@ -57,6 +57,7 @@ class JobParser(BaseParser):
             loguru.logger.warning("file {file} has not 'secteurs' job information", file=self.file)
 
         row = {
+            'id_enterprise': self.extract_id_enterprise(),
             'enterprise_name': enterprise_name,
             'job_name': job_name,
             'city': city,

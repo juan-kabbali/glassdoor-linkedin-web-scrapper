@@ -147,6 +147,7 @@ class EnterpriseReviewParser(BaseParser):
             useful_times = useful_times if useful_times else 0
 
             row = {
+                'id_enterprise': self.extract_id_enterprise(),
                 'enterprise_name': enterprise_name,
                 'score_avg': score_avg,
                 'title': title,
