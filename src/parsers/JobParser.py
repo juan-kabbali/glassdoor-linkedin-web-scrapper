@@ -56,9 +56,6 @@ class JobParser(BaseParser):
         except AttributeError:
             loguru.logger.warning("file {file} has not 'secteurs' job information", file=self.file)
 
-        loguru.logger.trace(f'{enterprise_name} --> {job_name} --> {city} --> {hierarchy_level} --> {job_type}'
-                            f' --> {functions} --> {sectors}')
-
         row = {
             'enterprise_name': enterprise_name,
             'job_name': job_name,
@@ -72,6 +69,7 @@ class JobParser(BaseParser):
 
         # add current row to data instance
         self.data.append(row)
+        self.print_row(row)
 
     def extract_metadata(self):
         loguru.logger.trace("Job metadata called for file {file}", file=self.file)
