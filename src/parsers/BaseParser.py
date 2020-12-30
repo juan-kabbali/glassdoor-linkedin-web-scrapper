@@ -74,6 +74,7 @@ class BaseParser:
 
             df = pd.DataFrame(file_content)
             df.to_csv(full_path)
+            df.to_csv(full_path, encoding='utf-8')
             loguru.logger.success("CSV file written at {full_path}", full_path=full_path)
         except IOError:
             loguru.logger.exception(IOError)
