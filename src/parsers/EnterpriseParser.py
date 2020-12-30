@@ -161,18 +161,10 @@ class EnterpriseParser(BaseParser):
         except AttributeError:
             loguru.logger.warning("file {file} has not 'prizes'", file=self.file)
 
-        loguru.logger.trace(f'{enterprise_name} --> {number_reviews} --> {number_jobs} --> {number_employees} --> '
-                            f'{number_interviews} --> {number_advantages} --> {number_photos} --> {web_link} --> '
-                            f'{city} --> {size} --> {founding_date} --> {enterprise_type} --> {sector} --> '
-                            f'{incomes}')
-
-        loguru.logger.trace(distinctions)
-        loguru.logger.trace(prizes)
-
         row = {
             'enterprise_name': enterprise_name,
             'number_reviews': number_reviews,
-            'number__jobs': number_jobs,
+            'number_jobs': number_jobs,
             'number_employees': number_employees,
             'number_interviews': number_interviews,
             'number_advantages': number_advantages,
@@ -193,6 +185,7 @@ class EnterpriseParser(BaseParser):
 
         # add current row to data instance
         self.data.append(row)
+        self.print_row(row)
 
     def extract_metadata(self):
         loguru.logger.trace("Enterprise metadata called for file {file}", file=self.file)

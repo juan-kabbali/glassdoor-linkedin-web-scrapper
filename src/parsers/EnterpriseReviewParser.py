@@ -88,9 +88,6 @@ class EnterpriseReviewParser(BaseParser):
             except AttributeError:
                 loguru.logger.warning("file {file} has not '{field_name}' score", file=self.file, field_name=field_name)
 
-            loguru.logger.trace(f'{enterprise_name} --> {score_avg} --> {title} --> {date} --> {score} --> '
-                                f'{score_balanced} --> {score_culture} --> {score_opportunities} --> '
-                                f'{score_wage_advantages} --> {score_leader_team}')
 
             row = {
                 'enterprise_name': enterprise_name,
@@ -128,6 +125,7 @@ class EnterpriseReviewParser(BaseParser):
         #         sectors.append(sector.text)
         # except AttributeError:
         #     loguru.logger.warning("file {file} has not 'secteurs' job information", file=self.file)
+            self.print_row(row)
 
     def extract_metadata(self):
         loguru.logger.trace("Enterprise Review metadata called for file {file}", file=self.file)

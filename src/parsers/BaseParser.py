@@ -73,8 +73,10 @@ class BaseParser:
                 file_content = BaseParser.metadata
 
             df = pd.DataFrame(file_content)
-            df.to_csv(full_path)
             df.to_csv(full_path, encoding='utf-8')
             loguru.logger.success("CSV file written at {full_path}", full_path=full_path)
         except IOError:
             loguru.logger.exception(IOError)
+
+    def print_row(self, row):
+        loguru.logger.trace("{class_name} ROW: {row}", class_name=self.__class__.__name__, row=row)
